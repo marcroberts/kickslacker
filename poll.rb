@@ -27,9 +27,9 @@ pledged_i = pledged.gsub(/,|\$|£/, '').to_i
 target_i = target.gsub(/,|\$|£/, '').to_i
 
 if backers > 0
-  old_count = cache.get('backer_count')
+  old_count = cache.get('backer_count').to_i
 
-  unless old_count && old_count = backers
+  if old_count < backers
 
     payload= {
       text: "New Backers on <#{ENV['KICKSTARTER_URL']}|#{title}>",
@@ -58,8 +58,9 @@ if backers > 0
 
     Net::HTTP.post_form(URI.parse(ENV['SLACK_URL']), {payload: JSON.dump(payload)})
 
+    cache.set('backer_count', backers)
+
   end
 
-  cache.set('backer_count', backers)
 
 end
