@@ -1,7 +1,9 @@
 kickslacker
 ===========
 
-Post progress updated on a kickstart project to Slack
+Post progress updates on a Kickstarter project to Slack
+
+![](https://s3.amazonaws.com/f.cl.ly/items/3s381r2L1H103B0y0d0e/Image%202014-09-11%20at%2010.07.42%20am.png)
 
 This is designed to be run on heroku, utilising the memcachier addon and the heroku scheduler to poll every 10 minutes.
 
