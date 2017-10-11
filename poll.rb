@@ -1,5 +1,5 @@
 require 'open-uri'
-require "uri"
+require 'uri'
 require 'json'
 require 'time'
 require 'yaml'
@@ -7,6 +7,7 @@ require 'digest'
 
 require 'rubygems'
 require 'bundler'
+
 Bundler.require
 Dotenv.load
 
@@ -57,7 +58,7 @@ config['projects'].each do |project|
       new_pledges_f = number_to_currency(new_pledges, locale: project['locale'], precision: 0)
 
       payload = {
-        text: "New Backers on <#{project['kickstarter_url']}|#{project['name']}>",
+        text: "+#{new_pledges_f} and #{new_backers} New Backer#{new_backers == 1 ? '' : 's'} on <#{project['kickstarter_url']}|#{project['name']}>",
         icon_url: "https://www.kickstarter.com/download/kickstarter-logo-k-color.png",
         channel: project['slack_channel'],
         username: 'Kickstarter',
