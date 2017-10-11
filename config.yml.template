@@ -1,0 +1,7 @@
+projects:
+- kickstarter_url: "https://www.kickstarter.com/projects/..."
+  name: "The name of the kickstarter project"
+  goal: 10000
+  slack_url: "https://hooks.slack.com/services/..."
+  slack_channel: "#kickstarter"
+  locale: en
